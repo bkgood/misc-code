@@ -335,7 +335,7 @@ int main(int argc, char **argv) {
         }
         ++m;
     }
-    if (!m) {
+    if (!mult_method) {
         goto usage;
     }
 
