@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} Budget Request for {{ year.range }} {% endblock %}
+{% block content %}
+<!--<h2>Select a category</h2>-->
+<table id="categories">
+    <tr><th>Category</th><th>Amount</th></tr>
+<form method="post" action="{% url afap.views.budgetrequest year.year %}">
+{% csrf_token %}
+{{ form.as_table }}
+{% if not read_only%}
+<tr><td colspan="2" style='text-align:right;' ><input type="submit" value="Save"/></td></tr>
+{% endif %}
+</form>
+<tr>
+    <td><a href="{% url afap.views.budgetrequestcategory year.year current_year.pk %}">{{ current_year.name }}</a></td>
+    <td style="text-align: center">{{ current_year.sum }}</td>
+</tr>
+<tr><th>Current year end balance</th><th>{{ current_year.end_balance }}</th></tr>
+<tr><th colspan="2">Projected {{ year.range }} expenses and income</th></tr>
+    {% for category in categories %}
+    <tr>
+        <td><a href="{% url afap.views.budgetrequestcategory year.year category.pk %}">{{ category.name }}</a></td>
+        <td style="text-align: center">{{ category.sum }}</td>
+    </tr>
+    {% endfor %}
+    <tr><th>Sum</th><th>{{ total_sum }}</th></tr>
+    <tr><th>Request</th><th>{{ total_request }}</th></tr>
+</table>
+<h2>Notes on the budget request</h2>
+<ul id="applicationnotes">
+    <li>The balance forward is your group's account balance as of June 30. It can be found as either the
+    account total on the June 30 FBM or as &quot;YR END BAL FORWARD&quot; on any FBM from the current year.</li>
+    <li>AFAP income is the amount of AFAP funds allocated to your group for the current school year.</li>
+    <li>Please ensure all entries are in their correct category.</li>
+    <li>The budget request should detail anticipated expenses and income for the {{ year.range }} academic year,
+    except where current year details are requested.</li>
+    <li>An organization's fiscal year is defined as July 1 through June 30.</li>
+    <li>The following restrictions are in place:
+    <ul id="applicationnotes">
+        <li>All merit and recognition scholarships will not be funded.</li>
+        <li>Any expense item which is not explained or is listed as "Miscellaneous" will be
+        eliminated.</li>
+        <li>All expenditures for alcoholic beverages will be eliminated.</li>
+        <li>Activity fees will not be used to fund Unversity, educational or general functions
+        that should be funded through state appropriations.</li>
+        <li>Any programming which encumbers funds for a period longer than twelve (12)
+        months will not be funded.</li>
+        <li>All expenses that would result in an illegal action will be eliminated.</li>
+    </ul></li>
+
+    <li>Note that, by editing this application, you authorize the AFAP committee to obtain an
+    FBM report detailing your account at the end of the previous fiscal year (July 1 of the
+    previous year).</li>
+</ul>
+{% endblock %}

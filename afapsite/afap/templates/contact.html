@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Change Contact Preferences {% endblock %}
+{% block content %}
+<h3 style="padding-bottom: 1em;">If you need to change any of these names or email addresses, please make any changes with
+<a href="http://campuslink.okstate.edu/" target="_blank">CampusLink</a> and notify
+AFAP administration.</h3>
+<form method="post" action="{% url afap.views.contact %}">
+{% csrf_token %}
+<table>
+{% for contact in contacts %}
+<tr><th><label>{{ contact.title }}:</label></th><td>{{ contact.person }}</td></tr>
+{% endfor %}
+<tr><td style="padding-top: 1em;">&nbsp;</td></tr>
+{{ form.as_table }}
+</table>
+<input type="submit" value="Save" />
+</form>
+<p><a href="{% url afap.views.home %}">Return Home</a></p>
+{% endblock %}

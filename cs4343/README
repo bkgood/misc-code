@@ -1,0 +1,9 @@
+CS4343 was a course in data structures and algorithms.
+
+hashing: this demonstrates various implementations of a hash table. Both Python
+and Java implementations are present.
+
+rbtree: a Java implementation of a red-black balanced binary tree.
+
+sorts: a C implementation of various sorting algorithms, comparing their
+performance on arrays of data of various size.

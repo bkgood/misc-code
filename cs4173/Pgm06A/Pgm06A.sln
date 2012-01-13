@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pgm06A", "Pgm06A\Pgm06A.csproj", "{E8AE55C2-B19A-467A-9DCC-0FF878ABEE1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8AE55C2-B19A-467A-9DCC-0FF878ABEE1A}.Debug|x86.ActiveCfg = Debug|x86
+		{E8AE55C2-B19A-467A-9DCC-0FF878ABEE1A}.Debug|x86.Build.0 = Debug|x86
+		{E8AE55C2-B19A-467A-9DCC-0FF878ABEE1A}.Release|x86.ActiveCfg = Release|x86
+		{E8AE55C2-B19A-467A-9DCC-0FF878ABEE1A}.Release|x86.Build.0 = Release|x86
+		{943E2444-AEFC-4E40-B11B-1B945EB4B938}.Debug|x86.ActiveCfg = Debug|x86
+		{943E2444-AEFC-4E40-B11B-1B945EB4B938}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

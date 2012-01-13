@@ -1,0 +1,10 @@
+William Good
+CS4343
+Programming assignment 2
+Due Nov 9, 2010
+
+Run the program with `python hashtable.py`. This will print out all the
+hash tables multiple times as described in the assignment, for a more concise
+view (so that the search activity is more easily seen), run
+`python hashtable.py q`. `./hashtable.py` should also work as the executable
+bit should be set.

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<ul>
+{% if has_application %}
+<li><h4>Application for academic year {{ active_year.date.range }}</h4>
+<ul style="padding: 0em 0em 1em 1em;">
+    <li>
+    <a href="{% url afap.views.application active_year.year %}">Organization Information</a>
+    </li>
+    <li><a href="{% url afap.views.budgetrequest active_year.year %}">Budget Request</a></li>
+    <li><a href="{% url afap.views.signatures active_year.year %}">Signatures</a></li>
+</ul></li>
+{% endif %}
+    <li><a href="{% url afap.views.archive %}">Previous years' applications</a></li>
+{% if has_application %}
+    <li style="padding-top: 1em;">
+    <a href="{% url afap.views.contact %}">Change your contact preferences</a>
+    </li>
+{% endif %}
+    <li><a href="{% url afap.views.password_change %}">Change your password</a></li>
+    <li><a href="/media/userguide.pdf">User guide</a></li>
+{% if user.is_superuser %}
+    <li style="padding-top: 1em;">
+    <a href="{% url afap.views.organization_select %}">Change current organization</a>
+        (currently working as {{ current_organization }})
+    </li>
+    <li><a href="{% url admin:index %}">Go to admin site</a></li>
+{% endif %}
+    <li><a href="{% url afap.views.logout %}">Log out</a></li>
+</ul>
+{% endblock %}

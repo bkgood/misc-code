@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Old applications {% endblock %}
+{% block content %}
+<ul>
+{% for year in archived_years %}
+    <li><a href="{% url afap.views.application year.year %}">Application for academic year {{ year.range }}</a>
+    <a href="{% url afap.views.budgetrequest year.year %}">Budget Request</a>
+    <a href="{% url afap.views.signatures year.year %}">Signatures</a></li>
+{% empty %}
+    <li>No old applications are available.</li>
+{% endfor %}
+</ul>
+{% endblock %}

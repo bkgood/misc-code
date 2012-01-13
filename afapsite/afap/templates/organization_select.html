@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Organization select {% endblock %}
+{% block content %}
+<h2>Please select an organization to work as.</h2>
+<form method="post" action="{% url afap.views.organization_select %}">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" id="Select" />
+</form>
+<p><a href="{% url admin:index %}">Go to administration</a></p>
+{% endblock %}

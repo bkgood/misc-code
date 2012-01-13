@@ -1,0 +1,36 @@
+{% comment %}
+This is sent to president, treasurer and advisor. It is given variables:
+    organization: organization object
+    year: the year this application is for (so we can say nice things like
+          "application for 2010-2011" with year.range)
+    constituency_group: constituency group object
+    negative_request: indicates if the request is negative
+{% endcomment %}
+
+{{ organization }} officers and advisor,
+
+According to our records, your AFAP application is currently incomplete. Our
+records indicate that your application has not been approved by all of your
+organization's required officers. If you wish to submit your application for
+consideration, please login and use the "Signatures" page to complete this
+portion of the application. If you have officers who are for whatever reason
+unable to complete this, please contact myself or the SGA office as soon as
+possible or your application will be considered incomplete and not
+considered for funding.
+
+{% if negative_request %}
+Additionally, according to the budget request portion of your application,
+your income is projected to be greater than your expenses through the end of
+the next academic year. This generally indicates that your group has no
+monetary need from the AFAP fund, however, applications which have been
+fully approved will be scheduled for hearings as has happened in years past,
+although applications not requesting money will likely not be given
+preferential treatment by the allocation committees.
+{% endif %}
+
+Any changes must be made by 4:00PM today (Monday, April 4). Applications not
+fully approved will not be scheduled for an AFAP hearing.
+
+Bill Good
+SGA AFAP Chair
+REDACTED

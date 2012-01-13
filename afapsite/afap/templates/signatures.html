@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Signatures for {{ year.range }}{% endblock %}
+{% block content %}
+<table id="categories">
+<tbody>
+    <tr><th>Approver</th><th>Approved</th><th>Approved at</th><th>Notes</th></tr>
+    {% for approval in approvals %}
+    <tr>
+        <td>{{ approval.approver.name }} ({{ approval.roles}})</td>
+        <td>{{ approval.approved|yesno:"Yes,No" }}</td>
+        <td>{{ approval.approved_at|default:"N/A" }}</td>
+        <td>{{ approval.notes }}</td></tr>
+    {% endfor %}
+</tbody>
+</table>
+<form action="{% url afap.views.signatures year.year %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Request approval by email"/>
+</form>
+<h2>Notes on the signatures</h2>
+<ul id="applicationnotes">
+    <li>The AFAP application is required to be approved by the organization's president, treasurer and advisor.</li>
+    <li>When your organization has completed the application, use the "Request approval by email" button to request
+    approval of your application from your officers. Your officers will receive each receive an email with a unique
+    link to a web page where they can view the application, approve it and make any comments about the
+    application.</li>
+    <li>All of the above approvers must approve the application for an application to be considered. If one of the
+    above officers is unable to complete this process or is no longer with the organization, please contact the SGA
+    office.</li>
+    <li>This replaces paper signatures required with previous years' applications.</li>
+</ul>
+{% endblock %}

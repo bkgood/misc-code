@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Budget Request for {{ year.range }} {% endblock %}
+{% block content %}
+<form action="{% url afap.views.budgetrequestcategory year.year category.pk %}" method="post">
+{% csrf_token %}
+<h2>{{ category }}</h2>
+<p>{{ category.description }}</p>
+<p>Press the "Save" button for additional lines.</p>
+{% for f in formset.management_form %}{{ f }}{% endfor %}
+<table id="form" style="margin-top: 1em;">
+    <thead>
+    <tr>
+    {% for field in formset.forms.0 %}
+        {% if not field.is_hidden %}
+            <th>{{ field.label }}</th>
+        {% endif %}
+    {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for form in formset.forms %}
+    {{ form.non_field_errors }}
+        <tr>
+        {% for field in form %} 
+            {% if not field.is_hidden %}
+                <td>{{ field.errors }}{{ field }}</td>
+            {% else %}
+                {{ field }}
+            {% endif %}
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    <tr><th>Total for {{ category }}</th><th>{{ category_sum }}</th><th></th></tr>
+{% if not read_only %}
+<tr><td></td><td><input type="submit" value="Save" /></td></tr>
+{% endif %}
+    </tbody>
+</table>
+</form>
+<p>
+<a href="{% url afap.views.budgetrequest year.year %}">Back to budget request</a>
+</p>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} Approval {% endblock %}
+{% block content %}
+{% if form %}
+<h2 style="margin-bottom: 1em;">AFAP application for {{ approval.application.organization }}, year {{ year.range }}</h2>
+<h3>Organization information</h3>
+<table>
+    <tr><th>President:</th><td>{{ approval.application.president }}</td></tr>
+    <tr><th>Treasurer:</th><td>{{ approval.application.treasurer }}</td></tr>
+    <tr><th>Advisor:</th><td>{{ approval.application.advisor }}</td></tr>
+    <tr><th>Constituency group:</th><td>{{ approval.application.organization.constituency_group }}</td></tr>
+{{ application.as_table }}
+</table>
+<h3>Budget Request</h3>
+{% for group in budget_request %}
+<table id="categories"><caption>{{ group.category }}</caption>
+    <tr><th>Description</th><th>Amount ($)</th><th>Is income</th></tr>
+    {% for line_item in group.line_items %}
+    <tr>
+        <td>{{ line_item.description }}</td><td>{{ line_item.amount }}</td>
+        <td>{{ line_item.income|yesno:"Yes,No" }}</td>
+    </tr>
+    {% endfor %}
+    <tr><th>Sum</th><th>{{ group.sum }}</th></tr>
+</table>
+{% endfor %}
+<table id="categories">
+    <tr><th>Balance forward</th><td>{{ balance_forward }}</td></tr>
+    <tr><th>AFAP income</th><td>{{ afap_income }}</td></tr>
+    <tr><th>Total sum</th><td>{{ total_sum }}</td></tr>
+    <tr><th>Total request for {{ year.range }}</th><td>{{ total_request }}</td></tr>
+</table>
+<hr/>
+<form method="post" action="{% url afap.views.approve year.year hash %}">
+{% csrf_token %}
+<table>
+{{ form }}
+</table>
+<input type="submit" value="Save" />
+</form>
+{% endif %}
+{% endblock %}

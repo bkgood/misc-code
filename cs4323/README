@@ -1,0 +1,6 @@
+fib: calculates the nth Fibbonacci number, using either a single process or
+fork
+
+matrix: performs matrix multiplication with either a single process or multiple
+threads (using pthreads). This was initially a much less elaborate assignment,
+but the problem interested me so I've expanded it over time.

@@ -1,0 +1,38 @@
+{% comment %}
+This is sent to president, treasurer and advisor. It is given variables:
+    organization: organization object
+    username: string containing login username
+    password: string containing login password
+    year: the year this application is for (so we can say nice things like
+          "application for 2010-2011" with year.range)
+    constituency_group: constituency group object
+{% endcomment %}
+
+{{ organization }} officers and advisor,
+
+Your organization has an available SGA AFAP application to apply for funding
+for the {{ year.range }} academic year. A due date has been set of March 24,
+2011.
+
+The application is available at http://afap.osusga.com/. Your organization has
+been assigned a username and password of {{ username }} and {{ password }},
+respectively. After logging in, you will find this years' application, any
+application your organization submitted for funding last year, and various
+other options. In particular, if you do not wish to receive any further email
+regarding AFAP funding for your organization, please log in, select "Change
+contact preferences", and deselect your name.
+
+Informational sessions have been scheduled for Thursday, March 10 from 9:30 to
+10:30, and Tuesday, March 22 from 12:00 to 1:00, both in CLB 407 (this is a
+computer lab on the forth floor of the Classroom building).
+
+Note that your organization has been placed in the {{ constituency_group }}
+constituency group, which dictates the AFAP hearing your organization will
+attend. If you believe this is in error, please contact me.
+
+Please feel free to contact me with any questions, or if you need any
+assistance with your application.
+
+Bill Good
+SGA AFAP Chair
+REDACTED

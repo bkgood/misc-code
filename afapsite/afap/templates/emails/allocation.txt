@@ -1,0 +1,26 @@
+{% comment %}
+This is sent to president, treasurer and advisor. It is given variables:
+    organization: organization object
+    allocations: list of allocation objects
+    sum: sum of the allocations
+    year: RangedDate object
+{% endcomment %}
+
+{{ organization }} officers and advisor,
+
+A new allocation has been recorded for your organization for the {{ year.range }}
+academic year. Currently, the following allocations have been made:
+
+{% for allocation in allocations %}{{ allocation.description }}: ${{ allocation.amount }}
+{% endfor %}Total AFAP allocation for {{ year.range }}: ${{ sum }}
+
+If you are in need of any additional money from AFAP, an appeals meeting
+has been scheduled for Thursday, April 21 from 4-6p.m. in the
+Student Union French Lounge (SU270), in which allocations will be made
+on a first come, first serve basis.
+
+Please feel free to contact me if you have any questions. 
+
+Bill Good
+SGA AFAP Chair
+REDACTED

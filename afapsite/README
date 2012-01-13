@@ -1,0 +1,18 @@
+This is the Django web application I created to record and manage student
+organization funding requests for the Oklahoma State University Student
+Government Association. It uses South for database schema changes, and
+ReportLab to generate PDF files for review in meetings.
+
+
+Some notes:
+afap contains the web application code
+util contains various utility scripts I wrote to aid in administration
+
+Licensing and ownership:
+All included files are of my own creation, with one exception:
+afap/templates/admin: most of these have been copied from the Django
+distribution, but I had to make a few changes.
+
+
+All personal data that is not my own has been removed, and my contact
+information redacted.

@@ -1,0 +1,18 @@
+William Good
+CS4343
+Programming assignment 1
+Due Oct 5, 2010
+
+Compilation:
+make
+
+Execution:
+./sorts
+
+This assignment has been written in GNU C99 using only the standard library as
+provided on csx. The different sorting algorithms are implemented in
+insertion.c, merge.c, heap.c and quick.c. main.c contains the execution,
+timing and output code, including the main program routine. Due to the speed
+of some implementations at lower values of n, the time taken is immeasurable
+by the system and reported as 0.0 seconds. Dramatic further speed increases
+can be attained by appending -O3 to the CFLAGS variable in the Makefile.

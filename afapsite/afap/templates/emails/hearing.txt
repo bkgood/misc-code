@@ -1,0 +1,18 @@
+{% comment %}
+This is sent to president, treasurer and advisor. It is given variables:
+    organization: organization object
+    constituency_group: the constituency org
+    datetime: the date and time of the hearing
+    location: the location of the hearing
+{% endcomment %}
+
+{{ organization }} officers and advisor,
+
+Your organization has been scheduled for the {{ constituency_group }}
+hearing at {{ datetime|date:"l, F j, Y" }} at {{ datetime|date:"P" }} in {{ location }}.
+Please ensure at least one person from your organization capable of discussing
+the application is present at that time.
+
+Bill Good
+SGA AFAP Chair
+REDACTED

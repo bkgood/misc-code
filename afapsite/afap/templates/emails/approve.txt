@@ -1,0 +1,13 @@
+{{ to }},
+An AFAP application for your organization {{ organization }} is ready for your
+approval at {{ location }}.
+Please review this application and indicate your approval using the form at
+the bottom of the page at your earliest convenience.
+
+Note that this replaces the signatures required on previous years' AFAP
+applications.
+
+Thanks,
+Bill Good
+SGA AFAP Chair
+REDACTED

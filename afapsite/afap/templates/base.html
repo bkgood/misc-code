@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}{% endblock %} | Oklahoma State SGA AFAP</title>
+    <link rel="stylesheet" type="text/css" href="/media/reset.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/media/style.css" media="all">
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" type="text/css" href="http://www.osusga.com/wp-content/themes/osu_theme/styles/ie.css" media="all" />
+    <![endif]-->
+    <!--<script type="text/javascript" src="./sga_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./sga_files/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./sga_files/jquery.labelify.js"></script>
+    <script type="text/javascript" src="./sga_files/jquery.js"></script>
+    <link rel="canonical" href="">-->
+</head>
+<body>
+    <div id="navigation">
+        <div class="nav-inner">    
+            <div id="logo">
+                <h1>
+                    <a href="/"><span>OSU Student Government Association</span></a>
+                </h1>
+            </div>
+            <ul class="headerlinks">
+                <!-- -->
+                <li class="home"><a href="{% url afap.views.home %}"><span>Home</span></a></li>
+{% if active_year %}
+                <li class="application"><a href="{% url afap.views.application active_year.year %}"><span>Application</span></a></li>
+                <li class="budgetrequest"><a href="{% url afap.views.budgetrequest active_year.year %}"><span>Budget Request</span></a></li>
+                <li class="signatures"><a href="{% url afap.views.signatures active_year.year %}"><span>Signatures</span></a></li>
+                <li class="logout"><a href="{% url afap.views.logout %}"><span>Logout</span></a></li>
+{% endif %}
+                <li class="divider">&nbsp;</li>
+<!--                <li class="search">
+                <form action="/" method="get" id="frmSearch">
+                    <fieldset>
+                        <legend>Search</legend>
+                        <input type="text" name="s" id="s" class="text" title="Search.." value="">
+                        <input type="submit" value="" name="submit" class="submit">
+                        <div class="clear">&nbsp;</div>
+                    </fieldset>
+                </form>
+                </li>-->
+                <!-- -->
+            </ul>
+            <div class="clear">&nbsp;</div>
+        </div>
+    </div>
+    <div id="head">
+    </div>
+    <div id="body-container">
+        <div id="body">
+            <div class="head">
+                <h1>Activity Fee Allocation Process</h1>    
+            </div>
+{% if sidebar_items and sidebar_items|length > 0 %}
+            <ul class="secondary" style="height: 279px;">
+    {% for item in sidebar_items %}
+                <li id="text-3" class="widget-container">
+                    <div class="sidebar-title">
+                        <h3 class="widget-title">{{ item.title|safe }}</h3>
+                    </div>
+                    <div class="textwidget">
+                        <p>
+                            {{ item.text|safe }}
+                        </p>
+                    </div>
+                </li>
+    {% endfor %}
+            </ul>
+{% else %}
+    <!-- No sidebar items, no sidebar generated -->
+{% endif %}
+            <div class="main" style="min-height: 279px; ">
+                {% if messages %}
+                <!-- show messages -->
+                <ul class="messages">
+                {% for message in messages %}
+                    <!-- message -->
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% empty %}
+                    <!-- no messages to be displayed -->
+                {% endfor %}
+                </ul>
+                {% endif %}
+                <!-- begin content block -->
+                {% block content %}
+                {% endblock %}
+                <!-- end content block -->
+            </div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <div id="foot">
+            <div class="main">
+                <p>&copy; 2010 Oklahoma State University Student Government Association. All Rights Reserved.</p>
+            </div>
+            <div class="secondary">
+                <!--<p><a href="http://osusga.com/wp-admin">Officer Login</a></p>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
