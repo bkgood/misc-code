@@ -17,7 +17,8 @@ cs3443: assignments from a Computer Architecture/Organization class. All
 assignments are written in MIPS assembler, targeted to the SPIM simulator.
 
 cs4173: assignments from a Video Game Development course. All assignments are
-written in C#, using XNA. (Final project using the Unity engine not included.)
+written in C#, using XNA, and a small part of the final group project, written
+using Unity (a part of my contribution to the project).
 
 cs4323: assignments from a course on Operating Systems. Both assignments were
 written to test understanding of multi-threaded programming.
